@@ -43,10 +43,10 @@ chmod a+x %{SOURCE3}
 rm -rf %{buildroot}
 install -D -m 755  core/adb/adb %{buildroot}%{_bindir}/adb
 install -D -m 755  core/fastboot/fastboot %{buildroot}%{_bindir}/fastboot
-install -D -m 0644 51-android.rules %{buildroot}%{_udevprefix}/udev/rules.d/51-android.rules
+install -D -m 0644 51-android.rules %{buildroot}/lib/udev/rules.d/51-android.rules
 
 %files
 %defattr(-,root,root,-)
 %{_bindir}/adb
 %{_bindir}/fastboot
-%{_udevprefix}/udev/rules.d/51-android.rules
+/lib/udev/rules.d/51-android.rules
