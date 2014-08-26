@@ -23,7 +23,7 @@ Provides:       fastboot
 Conflicts:      android-tools
 
 %description
-qa-droid-tools for Mer
+qa-droid-tools (fastboot and adb) for Mer QA
 
 The upstream tarball is based of these upstream Android git repos:
   git clone https://android.googlesource.com/platform/system/core
