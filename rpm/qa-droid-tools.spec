@@ -9,6 +9,9 @@ Source0:    qa-droid-tools-%{version}.tar.gz
 Source1:    adb.mk
 Source2:    fastboot.mk
 Source3:    udev-rule-builder.sh
+Patch0:     0001-Ignore-selinux-android-header.patch
+Patch1:     0001-Add-vendors.patch
+Patch2:     0001-Use-mmap-for-fastboot-data.patch
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  libselinux-devel
 BuildRequires:  zlib
@@ -24,6 +27,9 @@ with unneeded files removed.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 make -f %{SOURCE1} -C core/adb

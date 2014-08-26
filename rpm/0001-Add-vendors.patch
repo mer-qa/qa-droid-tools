@@ -1,0 +1,48 @@
+From f26d13cc80fd09b58591badf37fc3b414bb06a86 Mon Sep 17 00:00:00 2001
+From: Matti Kosola <matti.kosola@jolla.com>
+Date: Tue, 26 Aug 2014 09:41:27 +0300
+Subject: [PATCH] Add vendors
+
+Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
+---
+ adb/usb_vendors.c   | 3 +++
+ fastboot/fastboot.c | 2 ++
+ 2 files changed, 5 insertions(+)
+
+diff --git a/adb/usb_vendors.c b/adb/usb_vendors.c
+index 68bb232..9b3f1ac 100644
+--- a/adb/usb_vendors.c
++++ b/adb/usb_vendors.c
+@@ -153,6 +153,8 @@
+ #define VENDOR_ID_NOOK          0x2080
+ // Qisda's USB Vendor ID
+ #define VENDOR_ID_QISDA         0x1D45
++// Jolla's USB Vendor ID
++#define VENDOR_ID_JOLLA         0x2931
+ // ECS's USB Vendor ID
+ #define VENDOR_ID_ECS           0x03fc
+ 
+@@ -218,6 +220,7 @@ int builtInVendorIds[] = {
+     VENDOR_ID_MTK,
+     VENDOR_ID_NOOK,
+     VENDOR_ID_QISDA,
++    VENDOR_ID_JOLLA,
+     VENDOR_ID_ECS,
+ };
+ 
+diff --git a/fastboot/fastboot.c b/fastboot/fastboot.c
+index f186c93..2b715e9 100644
+--- a/fastboot/fastboot.c
++++ b/fastboot/fastboot.c
+@@ -223,6 +223,8 @@ int match_fastboot_with_serial(usb_ifc_info *info, const char *local_serial)
+        (info->dev_vendor != 0x413c) &&  // DELL
+        (info->dev_vendor != 0x2314) &&  // INQ Mobile
+        (info->dev_vendor != 0x0b05) &&  // Asus
++       (info->dev_vendor != 0x1d45) &&  // Qisda
++       (info->dev_vendor != 0x2931) &&  // Jolla
+        (info->dev_vendor != 0x0bb4))    // HTC
+             return -1;
+     if(info->ifc_class != 0xff) return -1;
+-- 
+1.9.1
+

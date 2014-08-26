@@ -1,0 +1,41 @@
+From 68de93549afe70951efbe002b1914235d7076015 Mon Sep 17 00:00:00 2001
+From: Matti Kosola <matti.kosola@jolla.com>
+Date: Tue, 26 Aug 2014 09:52:35 +0300
+Subject: [PATCH] Use mmap for fastboot data
+
+Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
+---
+ fastboot/fastboot.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/fastboot/fastboot.c b/fastboot/fastboot.c
+index 2b715e9..ee59a7e 100644
+--- a/fastboot/fastboot.c
++++ b/fastboot/fastboot.c
+@@ -44,6 +44,7 @@
+ #include <sys/time.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
++#include <sys/mman.h>
+ 
+ #include <bootimg.h>
+ #include <sparse/sparse.h>
+@@ -182,11 +183,12 @@ static void *load_fd(int fd, unsigned *_sz)
+         goto oops;
+     }
+ 
+-    data = (char*) malloc(sz);
++    //data = (char*) malloc(sz);
++    data = mmap(NULL, sz, PROT_READ, MAP_SHARED, fd, 0);
+     if(data == 0) goto oops;
+ 
+-    if(read(fd, data, sz) != sz) goto oops;
+-    close(fd);
++    //if(read(fd, data, sz) != sz) goto oops;
++    //close(fd);
+ 
+     if(_sz) *_sz = sz;
+     return data;
+-- 
+1.9.1
+
