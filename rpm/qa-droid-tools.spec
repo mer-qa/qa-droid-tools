@@ -34,6 +34,7 @@ with unneeded files removed.
 %build
 make -f %{SOURCE1} -C core/adb
 make -f %{SOURCE2} -C core/fastboot
+chmod a+x %{SOURCE3}
 %{SOURCE3} > 51-android.rules
 
 %install
