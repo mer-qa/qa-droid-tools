@@ -27,9 +27,9 @@ with unneeded files removed.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch0 -p1 -d extras
+%patch1 -p1 -d core
+%patch2 -p1 -d core
 
 %build
 make -f %{SOURCE1} -C core/adb
