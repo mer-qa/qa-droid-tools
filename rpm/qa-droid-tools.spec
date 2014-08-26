@@ -18,6 +18,10 @@ BuildRequires:  zlib-devel
 BuildRequires:  udev
 Requires:       udev
 
+Provides:       adb
+Provides:       fastboot
+Conflicts:      android-tools
+
 %description
 qa-droid-tools for Mer
 
