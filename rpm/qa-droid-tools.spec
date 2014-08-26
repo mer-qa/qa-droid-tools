@@ -14,7 +14,9 @@ Patch1:     0001-Add-vendors.patch
 Patch2:     0001-Use-mmap-for-fastboot-data.patch
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  libselinux-devel
-BuildRequires:  zlib
+BuildRequires:  zlib-devel
+BuildRequires:  udev
+Requires:       udev
 
 %description
 qa-droid-tools for Mer
