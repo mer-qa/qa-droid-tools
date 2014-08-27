@@ -40,6 +40,6 @@ while read -r line ; do
     printf "# $VENDOR\n"
     printf "SUBSYSTEM==\"usb\", ATTR{idVendor}==\""
     printf "$ID"
-    printf "\", MODE=\"0660\", GROUP=\"users\"\n\n"
+    printf "\", MODE=\"0660\", GROUP=\"tester\"\n\n"
 
 done < <(grep $STRING $FILE)
