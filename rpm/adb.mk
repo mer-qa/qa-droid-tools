@@ -23,7 +23,6 @@ SRCS+= socket_local_server.c
 SRCS+= socket_loopback_client.c
 SRCS+= socket_loopback_server.c
 SRCS+= socket_network_client.c
-SRCS+= list.c
 SRCS+= load_file.c
 
 VPATH+= ../libzipfile
@@ -35,6 +34,7 @@ CPPFLAGS+= -DADB_HOST=1
 CPPFLAGS+= -DHAVE_FORKEXEC=1
 CPPFLAGS+= -DHAVE_SYMLINKS
 CPPFLAGS+= -DHAVE_TERMIO_H
+CPPFLAGS+= -D_FILE_OFFSET_BITS=64
 CPPFLAGS+= -I.
 CPPFLAGS+= -I../include
 CPPFLAGS+= -I../../../external/zlib
