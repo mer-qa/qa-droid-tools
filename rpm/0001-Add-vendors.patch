@@ -1,6 +1,6 @@
-From f26d13cc80fd09b58591badf37fc3b414bb06a86 Mon Sep 17 00:00:00 2001
+From b866e8c5d4ccb695c2db7804fab61c2863773600 Mon Sep 17 00:00:00 2001
 From: Matti Kosola <matti.kosola@jolla.com>
-Date: Tue, 26 Aug 2014 09:41:27 +0300
+Date: Tue, 16 Dec 2014 14:29:34 +0200
 Subject: [PATCH] Add vendors
 
 Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
@@ -10,31 +10,31 @@ Signed-off-by: Matti Kosola <matti.kosola@jolla.com>
  2 files changed, 5 insertions(+)
 
 diff --git a/adb/usb_vendors.c b/adb/usb_vendors.c
-index 68bb232..9b3f1ac 100644
+index 957e5db..7a98b37 100755
 --- a/adb/usb_vendors.c
 +++ b/adb/usb_vendors.c
-@@ -153,6 +153,8 @@
- #define VENDOR_ID_NOOK          0x2080
- // Qisda's USB Vendor ID
- #define VENDOR_ID_QISDA         0x1D45
+@@ -100,6 +100,8 @@
+ #define VENDOR_ID_INTERMEC      0x067e
+ // IRiver's USB Vendor ID
+ #define VENDOR_ID_IRIVER        0x2420
 +// Jolla's USB Vendor ID
 +#define VENDOR_ID_JOLLA         0x2931
- // ECS's USB Vendor ID
- #define VENDOR_ID_ECS           0x03fc
- 
-@@ -218,6 +220,7 @@ int builtInVendorIds[] = {
-     VENDOR_ID_MTK,
-     VENDOR_ID_NOOK,
-     VENDOR_ID_QISDA,
+ // K-Touch's USB Vendor ID
+ #define VENDOR_ID_K_TOUCH       0x24E3
+ // KT Tech's USB Vendor ID
+@@ -229,6 +231,7 @@ int builtInVendorIds[] = {
+     VENDOR_ID_INTEL,
+     VENDOR_ID_INTERMEC,
+     VENDOR_ID_IRIVER,
 +    VENDOR_ID_JOLLA,
-     VENDOR_ID_ECS,
- };
- 
+     VENDOR_ID_KOBO,
+     VENDOR_ID_K_TOUCH,
+     VENDOR_ID_KT_TECH,
 diff --git a/fastboot/fastboot.c b/fastboot/fastboot.c
-index f186c93..2b715e9 100644
+index 43d05aa..d8a878b 100644
 --- a/fastboot/fastboot.c
 +++ b/fastboot/fastboot.c
-@@ -223,6 +223,8 @@ int match_fastboot_with_serial(usb_ifc_info *info, const char *local_serial)
+@@ -214,6 +214,8 @@ int match_fastboot_with_serial(usb_ifc_info *info, const char *local_serial)
         (info->dev_vendor != 0x413c) &&  // DELL
         (info->dev_vendor != 0x2314) &&  // INQ Mobile
         (info->dev_vendor != 0x0b05) &&  // Asus
