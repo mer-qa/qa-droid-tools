@@ -38,10 +38,10 @@ CPPFLAGS+= -I.
 CPPFLAGS+= -I../include
 CPPFLAGS+= -I../mkbootimg
 CPPFLAGS+= -I../../extras/ext4_utils/
+CPPFLAGS+= -I../../extras/f2fs_utils/
 CPPFLAGS+= -I../libsparse/include/
-CPPFLAGS+= -D_FILE_OFFSET_BITS=64
-CPPFLAGS+= -D_GNU_SOURCE
-CPPFLAGS+= -std=c99
+CPPFLAGS+= -DHAVE_OFF64_T=1
+CPPFLAGS+= -std=gnu99
 
 LIBS+= -lz -lselinux
 
