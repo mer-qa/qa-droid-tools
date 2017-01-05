@@ -1,7 +1,7 @@
 
 Name:       qa-droid-tools
 Summary:    QA android tools
-Version:    5.0.0_r7
+Version:    5.1.1_r38
 Release:    1
 Group:      Tools
 License:    Apache 2.0
